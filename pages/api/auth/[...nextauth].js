@@ -16,8 +16,8 @@ export default NextAuth({
         "http://localhost:9000/oauth2/authorize?response_type=code",
       accessTokenUrl: "http://localhost:9000/oauth2/token",
       requestTokenUrl: "http://localhost:9000/oauth2/jwks",
-      clientId: process.env.QUOTECH_ID,
-      clientSecret: process.env.QUOTECH_SECRET,
+      clientId: process.env.QUOT_ID,
+      clientSecret: process.env.QUOT_SECRET,
       profile: (profile, tokens) => {
         console.log(profile, tokens);
         return {
