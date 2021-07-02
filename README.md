@@ -20,5 +20,7 @@ The `.env.local` file has 4 keys:
 NEXTAUTH_URL=http://localhost:3000/
 
 QUOT_ID=quot-test
+
 QUOT_SECRET=[key]
+
 SECRET=[random string]
