@@ -3,8 +3,8 @@ import NextAuth from "next-auth";
 export default NextAuth({
   providers: [
     {
-      id: "quotech-test",
-      name: "quotech-test",
+      id: "quot-test",
+      name: "quot-test",
       type: "oauth",
       version: "2.0",
       scope: "openid email",
