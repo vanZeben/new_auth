@@ -18,13 +18,11 @@ export default NextAuth({
       requestTokenUrl: "http://localhost:9000/oauth2/jwks",
       clientId: process.env.QUOT_ID,
       clientSecret: process.env.QUOT_SECRET,
-      profile: (profile, tokens) => {
-        console.log(profile, tokens);
-        return {
+  
+      profile: (profile, tokens) => ({
           id: tokens.idToken,
           token: tokens.idToken,
-        };
-      },
+      }),
     },
   ],
   secret: process.env.SECRET,
@@ -38,26 +36,14 @@ export default NextAuth({
     encryption: false,
   },
   callbacks: {
-    async signin(user, account, profile) {
-      console.log("user", user, account, profile);
-      return true;
-    },
-    async jwt(token, user, account, profile, isNewUser) {
-      console.log("here");
-      console.log(token);
-      console.log(user);
-      console.log(account);
-      console.log(profile);
-      console.log(isNewUser);
-      if (account.accessToken) {
+    jwt(token, user, account, profile, isNewUser) {
+      if (account?.accessToken) {
         token.accessToken = account.accessToken;
       }
-      return Promise.resolve(token);
+      return token;
     },
-    async session(session, token) {
-      console.log("here 2");
-      console.log(session);
-      console.log(token);
+    session(session, token) {
+      session.user.accessToken = token.accessToken;
       return session;
     },
   },

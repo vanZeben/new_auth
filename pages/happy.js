@@ -16,5 +16,5 @@ import { signIn, signOut, useSession, getSession } from "next-auth/client";
 export default function Happy() {
   const [session, loading] = useSession();
   console.log("session: ", session);
-  return <div>Salam</div>;
+  return <div>Salam - {JSON.stringify(session)}</div>;
 }

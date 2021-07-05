@@ -21,7 +21,7 @@ export default function Home() {
             Not signed in <br />
             <button
               onClick={() =>
-                signIn(null, { callbackUrl: "http://localhost:3000/happy" })
+                signIn('quot-test', { callbackUrl: "http://localhost:3000/happy" })
               }
             >
               Sign in
@@ -33,7 +33,7 @@ export default function Home() {
             Signed in <br />
             <button
               onClick={() =>
-                signOut(null, { callbackUrl: "http://localhost:3000" })
+                signOut({ callbackUrl: "http://localhost:3000" })
               }
             >
               Sign out
